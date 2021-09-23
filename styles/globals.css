@@ -1,9 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,200&display=swap');
+
+:root {
+  --light-purple: #dedefd;
+  --grey: #9595cb;
+  --dark-blue: #32386A;
+  --dark-purple: #6f6fad;
+  --darker-purple: #5858ac;
+  --light-blue: #12C2E9;
+  --light-orange: #FB6D3A;
+  --light-pink: #F64F59;
+  --white: #FFFFFF;
+
+  --background-color: var(--light-purple);
+  --foreground-color: var(--grey);
+}
+
 html,
 body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -13,4 +31,140 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  color: var(--dark-blue);
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 72px;
+  display: flex;
+}
+
+p {
+  text-align: center;
+  font-size: 24px;
+}
+
+main {
+  background: url('/bg.png') no-repeat bottom center;
+  background-size: 100vw;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 600px;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.logo svg {
+  height: 200px;
+  width: 400px;
+}
+
+a {
+  background: var(--dark-purple);
+  border: none;
+  width: 80px;
+  height: 80px;
+  font-size: 50px;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px var(--darker-purple);
+  color: var(--light-purple);
+  transition: all 0.3s ease-out;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+
+a:hover {
+  background-color: var(--darker-purple);
+  transform: translateY(3px);
+  box-shadow: 0 2px 5px var(--dark-blue);
+}
+
+.track-outline, .moving-outline {
+  position: absolute;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  pointer-events: none;
+}
+
+.track-outline circle, .moving-outline circle {
+  transition: all 0.2s ease-in-out;
+}
+
+.time-display {
+  color: white;
+  position: absolute;
+  font-size: 50px;
+  bottom: 10%;
+}
+
+.options {
+  display: flex;
+  width: 100%;
+}
+
+.times, .meditations {
+  padding: 15px;
+  width: 50%;
+  margin-bottom: 25px;
+}
+
+.times div, .meditations div {
+  background: var(--light-orange);
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--white);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.times div:hover, .meditations div:hover {
+  opacity: 0.8;
+}
+
+.times div.active, .meditations div.active {
+  opacity: 1;
+}
+
+.meditations div {
+  background: var(--light-pink);
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: fill;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
